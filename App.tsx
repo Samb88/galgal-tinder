@@ -14,20 +14,20 @@ const App = () => (
     <Stack.Navigator>
       <Stack.Screen
         name="Tab"
-        options={{ headerShown: false, animationEnabled: false }}
+        options={{ headerShown: false, animation: 'none' }}
       >
         {() => (
           <Tab.Navigator
-            tabBarOptions={{
-              showLabel: false,
-              activeTintColor: PRIMARY_COLOR,
-              inactiveTintColor: DARK_GRAY,
-              labelStyle: {
+            screenOptions={{
+              tabBarShowLabel: false,
+              tabBarActiveTintColor: PRIMARY_COLOR,
+              tabBarInactiveTintColor: DARK_GRAY,
+              tabBarLabelStyle: {
                 fontSize: 14,
                 textTransform: "uppercase",
                 paddingTop: 10,
               },
-              style: {
+              tabBarStyle: {
                 backgroundColor: WHITE,
                 borderTopWidth: 0,
                 marginBottom: 0,
@@ -42,7 +42,7 @@ const App = () => (
               name="Explore"
               component={Home}
               options={{
-                tabBarIcon: ({ focused }) => (
+                tabBarIcon: ({ focused, color }) => (
                   <TabBarIcon
                     focused={focused}
                     iconName="search"
@@ -56,7 +56,7 @@ const App = () => (
               name="Matches"
               component={Matches}
               options={{
-                tabBarIcon: ({ focused }) => (
+                tabBarIcon: ({ focused, color }) => (
                   <TabBarIcon
                     focused={focused}
                     iconName="heart"
@@ -70,7 +70,7 @@ const App = () => (
               name="Chat"
               component={Messages}
               options={{
-                tabBarIcon: ({ focused }) => (
+                tabBarIcon: ({ focused, color }) => (
                   <TabBarIcon
                     focused={focused}
                     iconName="chatbubble"
@@ -84,7 +84,7 @@ const App = () => (
               name="Profile"
               component={Profile}
               options={{
-                tabBarIcon: ({ focused }) => (
+                tabBarIcon: ({ focused, color }) => (
                   <TabBarIcon
                     focused={focused}
                     iconName="person"
